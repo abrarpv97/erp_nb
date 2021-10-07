@@ -1,0 +1,32 @@
+{
+ "custom_fields": [],
+ "custom_perms": [],
+ "doctype": "Appointment Letter content",
+ "property_setters": [
+  {
+   "_assign": null,
+   "_comments": null,
+   "_liked_by": null,
+   "_user_tags": null,
+   "creation": "2021-08-31 14:42:54.591721",
+   "default_value": null,
+   "doc_type": "Appointment Letter content",
+   "docstatus": 0,
+   "doctype_or_field": "DocField",
+   "field_name": "title",
+   "idx": 0,
+   "modified": "2021-08-31 14:42:54.591721",
+   "modified_by": "kunal@nestorbird.com",
+   "name": "Appointment Letter content-title-in_list_view",
+   "owner": "kunal@nestorbird.com",
+   "parent": null,
+   "parentfield": null,
+   "parenttype": null,
+   "property": "in_list_view",
+   "property_type": "Check",
+   "row_name": null,
+   "value": "0"
+  }
+ ],
+ "sync_on_migrate": 1
+}
