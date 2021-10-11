@@ -2,14 +2,14 @@ frappe.ui.form.on('Timesheet', {
     refresh: function(frm) { 
         if(frm.doc.docstatus == '0'){
              frm.remove_custom_button("Start Timer");
-       
-   }},
+        }
+    },
    onload:function(frm){
         if (!frm.doc.timesheet) {
             frm.set_intro('⚠️ <b>ATTENTION️ !</b>  You would not be able to modify this Timesheet once you Submit.');
         }
    },
-   validate:function(frm,cdt,cdn){
+   validate:function(frm){
         let sum = 0;
         $.each(frm.doc.time_logs || [], function(i, v) { 
             var time=v.time;
@@ -25,7 +25,7 @@ frappe.ui.form.on('Timesheet', {
         let total= hours + "." + (minutes <= 9 ? "0" : "") + minutes;
         frm.set_value("total_hours_working",total)
 
-    }
+    },
 });
 frappe.ui.form.on('Timesheet Detail', {
     spend_time_mins: function(frm,cdt,cdn){
@@ -38,6 +38,12 @@ frappe.ui.form.on('Timesheet Detail', {
         var time = d.spend_time_hours + '.' + d.spend_time_mins;
         frappe.model.set_value(d.doctype, d.name, "time", time);
         frappe.model.set_value(d.doctype, d.name, "expected_hours", d.spend_time_hours);
+    },
+    project_code: function(frm,cdt,cdn){
+        let d = locals[cdt][cdn]
+        if(d.project_code){
+            frappe.model.set_value(d.doctype, d.name, "project", d.project_code);
+        }
     }
 
 });
